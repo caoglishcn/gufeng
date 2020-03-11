@@ -1,0 +1,53 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+</head>
+<body>
+
+	<div id="gu">
+		<div class="row">
+			<div class="col-md-2  col-md-offset-2">
+				<button v-on:click="geneate()">古风生成</button>
+			</div>
+			<div class="col-md-2">
+				格式:<select v-model="formatSelected" v-if="formatCustom.length===0">
+					<option value="==-">==-</option>
+					<option value="==--">==--</option>
+					<option value="==-=">==-=</option>
+				</select>
+				<input type="text" val="" v-model="formatCustom">
+				<div class="col-md-8 col-md-offset-2" style="border:1px solid black">
+				<div>=:双字 </div>
+				<div>-:单字</div>
+				</div>
+			</div>
+			<div class="col-md-1">
+				句数:<select v-model="timeSelected">
+					<option value="2">2</option>
+					<option value="4">4</option>
+					<option value="8">8</option>
+				</select>
+				
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-8  col-md-offset-2">
+				<table class="table table-striped">
+					<tr v-for="s in sentence">
+						<td style="text-align: center">{{s}}</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		
+		
+	</div>
+	<script src="https://unpkg.com/vue"></script>
+	<script src="gufeng.js"></script>
+
+</body>
+</html>
